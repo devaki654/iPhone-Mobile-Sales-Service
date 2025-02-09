@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Service Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            background: #444;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: background 0.3s;
+        }
+        nav ul li a:hover {
+            background: #ff6600;
+            border-radius: 5px;
+        }
+        .hero {
+            background: url('https://source.unsplash.com/1600x500/?smartphone,repair') no-repeat center center/cover;
+            color: black;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #cc5500;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .service-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .service {
+            background: white;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .service h3 {
+            color: #ff6600;
+        }
+        .service p {
+            font-size: 14px;
+        }
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mobile Service Center</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="buy.html">Buy</a></li>
+                <li><a href="contact.html">Order</a></li>
+                <li><a href="spare.html">Spares</a></li>
+                <li><a href="service.html">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Fast & Reliable Mobile Repair Services</h1>
+        <p>We fix your mobile problems with expert technicians and high-quality parts.</p>
+        <a href="index.html" class="btn">Explore Services</a>
+    </div>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service">
+                <h3>Screen Replacement</h3>
+                <p>High-quality screen replacement for all models.</p>
+            </div>
+            <div class="service">
+                <h3>Battery Replacement</h3>
+                <p>Replace your old battery with a new one.</p>
+            </div>
+            <div class="service">
+                <h3>Software Issues</h3>
+                <p>Fix software glitches, updates, and more.</p>
+            </div>
+            <div class="service">
+                <h3>Water Damage Repair</h3>
+                <p>Recover your phone from water damage.</p>
+            </div>
+            <div class="service">
+                <h3>Camera Repair</h3>
+                <p>Fix blurry, broken, or malfunctioning cameras.</p>
+            </div>
+            <div class="service">
+                <h3>Charging Port Repair</h3>
+                <p>Fix charging issues and port replacements.</p>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <footer>
+        <p>&copy; 2025 Mobile Service Center. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

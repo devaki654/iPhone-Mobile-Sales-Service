@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Website - About</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9; /* Light gray background for the body */
+        }
+
+        /* Navigation */
+        nav {
+            background: #4CAF50; /* Green navigation bar */
+            padding: 10px 0;
+            transition: background 0.3s ease;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+            color: #FFD700; /* Gold color on hover */
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(to right, #6A82FB, #FC5C7D); /* Gradient background */
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            transition: padding 0.3s ease;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow to the text */
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #f0f0f0; /* Slightly lighter text color */
+            opacity: 0;
+            animation: fadeIn 2s forwards 0.5s;
+        }
+
+        /* About Section */
+        .about-content {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #FFD700; /* Gold color for links */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .about-content p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="buy.html">Buy</a></li>
+            <li><a href="contact.html">Order</a></li>
+            <li><a href="spare.html">Spares</a></li>
+            <li><a href="service.html">Services</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>About Us</h1>
+        <p>Learn more about our mission, vision, and values.</p>
+    </header>
+    
+    <section class="about-content">
+        <h2>Our Mission</h2>
+        <p>We strive to provide the best products and services to our customers. Our mission is to offer high-quality solutions that meet the needs of our clients while maintaining a strong commitment to sustainability and ethical practices.</p>
+        
+        <h2>Our Vision</h2>
+        <p>We envision a world where our products make a meaningful difference in people's lives, contributing to their well-being and success. Our goal is to continue innovating and expanding our offerings to meet the ever-evolving needs of the market.</p>
+        
+        <h2>Our Values</h2>
+        <p>We believe in integrity, customer satisfaction, and continuous improvement. We are committed to creating long-term relationships with our clients, partners, and employees based on trust and mutual respect.</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Your Website. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Change navigation bar background on scroll
+        window.onscroll = function() {
+            var nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = '#333'; // Darker background after scroll
+            } else {
+                nav.style.background = '#4CAF50'; // Original green background
+            }
+        };
+
+        // Add hover effect on footer link
+        document.querySelector('footer a').addEventListener('mouseover', function() {
+            this.style.color = '#fff'; // Change color to white on hover
+        });
+
+        document.querySelector('footer a').addEventListener('mouseout', function() {
+            this.style.color = '#FFD700'; // Change back to gold when not hovered
+        });
+    </script>
+</body>
+</html>

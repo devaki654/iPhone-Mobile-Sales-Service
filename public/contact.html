@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .total {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        textarea {
+            height: 100px;
+        }
+        .order-confirmation {
+            display: none;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .checkmark {
+            font-size: 2em;
+            color: #fff;
+            background-color: #28a745;
+            padding: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons .btn {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="buy.html">Buy</a></li>
+                <li><a href="contact.html">Order</a></li>
+                <li><a href="spare.html">Spares</a></li>
+                <li><a href="service.html">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Checkout</h1>
+        <div class="total">
+            <p>Total Amount: $<span id="total-amount">0.00</span></p>
+        </div>
+
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+            <div class="buttons">
+                <button class="btn" type="submit">Submit</button>
+                <button class="btn" type="button" onclick="goBack()">Go Back</button>
+            </div>
+        </form>
+
+        <div class="order-confirmation" id="order-confirmation">
+            <div class="checkmark">✔</div>
+            <p>Order Confirmed! Your total amount is $<span id="confirmed-amount">0.00</span>.</p>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function displayTotal() {
+            const total = getQueryParameter('total');
+            if (total) {
+                document.getElementById('total-amount').textContent = total;
+            } else {
+                document.getElementById('total-amount').textContent = '0.00';
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        document.getElementById('checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const total = getQueryParameter('total');
+
+            // Show order confirmation
+            document.getElementById('order-confirmation').style.display = 'block';
+            document.getElementById('confirmed-amount').textContent = total;
+
+            // Send data to the server (backend)
+            fetch('/submit-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, address, total })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Order stored in database:', data);
+            })
+            .catch(error => {
+                console.error('Error storing order:', error);
+            });
+        });
+
+        displayTotal();
+    </script>
+</body>
+</html>
